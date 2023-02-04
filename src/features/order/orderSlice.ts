@@ -7,22 +7,17 @@ interface orderState {
   mealOptions: { value: number; label: string }[]; //Move to component
 
   selectedMeal: string;
-  result: { label: string; value: ReactNode }[];
+  selectedRestaurant: string;
 }
 
 // Define the initial state using that type
 const initialState: orderState = {
   selectedMeal: "",
+  selectedRestaurant: "",
   mealOptions: [
     { value: 0, label: "breakfast" },
     { value: 1, label: "lunch" },
     { value: 2, label: "dinner" },
-  ],
-  result: [
-    { label: "Meal", value: null },
-    { label: "No of People", value: null },
-    { label: "Restaurant", value: null },
-    { label: "Dishes", value: null },
   ],
 };
 
@@ -32,7 +27,10 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     selectMeal: (state, action: PayloadAction<string>) => {
-      state.selectedMeal = action.payload
+      state.selectedMeal = action.payload;
+    },
+    selectRestaurant: (state, action: PayloadAction<string>) => {
+      state.selectedRestaurant = action.payload;
     },
   },
 });

@@ -11,7 +11,7 @@ export const Step1 = () => {
         <label htmlFor="meal">Please Select a meal</label>
         <select
           id="meal"
-          className="w-full p-2 rounded cursor-pointer"
+          className="w-full p-2 rounded border cursor-pointer"
           value={selectedMeal}
           onChange={(e) => dispatch(selectMeal(e.target.value))}
         >
@@ -19,8 +19,8 @@ export const Step1 = () => {
             Select a meal
           </option>
           {mealOptions.map((v, k) => (
-            <option key={k} value={v.value}>
-              {v.label}
+            <option key={k} value={v.label}>
+              {v.label.charAt(0).toUpperCase() + v.label.slice(1)}
             </option>
           ))}
         </select>

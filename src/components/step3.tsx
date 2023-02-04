@@ -1,10 +1,13 @@
 export const Step3 = () => {
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 justify-between">
         <div>
           <label htmlFor="meal">Please Select a Restaurant</label>
-          <select id="meal" className="w-full p-2 rounded cursor-pointer">
+          <select
+            id="meal"
+            className="w-full p-2 rounded border cursor-pointer"
+          >
             <option>1</option>
           </select>
         </div>

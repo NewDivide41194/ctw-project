@@ -9,6 +9,7 @@ const Form = () => {
   const { totalStep, currentStep } = useAppSelector(
     (state) => state.pagination
   );
+
   return (
     <form
       onSubmit={(e) => {
