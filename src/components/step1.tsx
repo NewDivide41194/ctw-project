@@ -1,12 +1,13 @@
-import { ReactNode } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../app/hook";
-import { selectMeal } from "../features/order/orderSlice";
+import { changeNoOfPeople, selectMeal } from "../features/order/orderSlice";
 
 export const Step1 = () => {
-  const { mealOptions, selectedMeal } = useAppSelector((state) => state.order);
+  const { mealOptions, selectedMeal,noOfPeople } = useAppSelector((state) => state.order);
   const dispatch = useAppDispatch();
+
   return (
-    <>
+    <React.Fragment>
       <div className="pb-5">
         <label htmlFor="meal">Please Select a meal</label>
         <select
@@ -32,10 +33,11 @@ export const Step1 = () => {
           type="number"
           min={1}
           max={10}
+          value={noOfPeople}
           className="w-full p-2 rounded border"
-          defaultValue={1}
+          onChange={(e) => dispatch(changeNoOfPeople(Number(e.target.value)))}
         />
       </div>
-    </>
+    </React.Fragment>
   );
 };
